@@ -1,5 +1,6 @@
 require "PokemonCLI/version"
+require "../config/environment"
 
 module PokemonCLI
-  # Your code goes here...
+  
 end
