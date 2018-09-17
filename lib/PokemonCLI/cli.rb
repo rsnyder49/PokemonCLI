@@ -1,0 +1,2 @@
+class PokemonCLI 
+end 
