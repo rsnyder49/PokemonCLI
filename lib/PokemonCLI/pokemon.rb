@@ -1,4 +1,4 @@
-class Pokemon 
+class PokemonCLI::Pokemon 
   
   "this is a test commit"
 end 

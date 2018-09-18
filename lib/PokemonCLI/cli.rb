@@ -1,2 +1,2 @@
-class PokemonCLI 
+class PokemonCLI::CLI  
 end 
