@@ -9,5 +9,7 @@ class PokemonCLI::Scraper
     
     poke_dex.css("div grid-col span-md-12 span-lg-10").each do |pokemon| 
       
+    end
+      
   end 
 end 

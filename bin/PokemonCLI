@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
-require '../config/environment'
 
-PokemonCLI::CLI.new
+require 'bundler/setup'
+require 'PokemonCLI'
+
+
+
 
 puts "hello world"

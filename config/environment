@@ -2,7 +2,9 @@ require 'pry'
 require 'nokogiri'
 require 'open-uri'
 
-require_relative '../lib/PokemonCLI/scraper'
-require_relative '../lib/PokemonCLI/pokemon'
-require_relative '../lib/PokemonCLI/cli'
-require_relative '../lib/PokemonCLI/version'
+#require_all 'lib'
+
+#require './lib/PokemonCLI/scraper'
+#require './lib/PokemonCLI/pokemon'
+#require './lib/PokemonCLI/cli'
+#require './lib/PokemonCLI/version'
