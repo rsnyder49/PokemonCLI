@@ -5,5 +5,5 @@ require 'PokemonCLI'
 
 
 
-
-puts "hello world"
+puts "hello"
+PokemonCLI::CLI.new.start
