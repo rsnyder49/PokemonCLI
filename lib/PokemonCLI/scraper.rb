@@ -6,16 +6,16 @@ class Scraper
   def get_page
     html = File.read("https://pokemondb.net/pokedex/all")
     poke_dex = Nokogiri::HTML(html)
+  end 
+  
+  def add_num_and_name
+    poke_dex_hash = {}
     
-    poke_dex_array = []
-    
-    poke_dex.css("div grid-col span-md-12 span-lg-10").each do |pokemon| 
-      poke_dex_array << {
-        
-        #:number => pokemon.css("span infocard-cell-data").text
-      }
+    get_page.css("div grid-col span-md-12 span-lg-10").each do |pokemon| 
+      #poke_dex_hash[:number] = pokemon.css("span infocard-cell-data").text
+      #poke_dex_hash[:name] = pokemon.css("td cell-name a ent-name").text
       binding.pry
     end
-      
-  end 
+  end
+  
 end 

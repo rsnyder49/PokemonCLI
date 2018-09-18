@@ -1,4 +1,9 @@
 class PokemonCLI::Pokemon 
+  @@all = []
   
-  "this is a test commit"
+  def self.all 
+    puts "1. Bulbasaur"
+    @@all 
+  end 
+  
 end 
