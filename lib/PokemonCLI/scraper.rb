@@ -11,7 +11,8 @@ class Scraper
     
     poke_dex.css("div grid-col span-md-12 span-lg-10").each do |pokemon| 
       poke_dex_array << {
-        :number => pokemon.css("span infocard-cell-data").text
+        
+        #:number => pokemon.css("span infocard-cell-data").text
       }
       binding.pry
     end
