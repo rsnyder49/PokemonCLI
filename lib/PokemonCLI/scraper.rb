@@ -18,4 +18,7 @@ class Scraper
     end
   end
   
+  def add_additional_attributes 
+  end
+  
 end 
