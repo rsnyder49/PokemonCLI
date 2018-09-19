@@ -2,7 +2,7 @@
 class PokemonCLI::CLI  
   
   def start 
-    puts "Welcome to the PokemonCLI"
+    puts "Welcome to the PokemonCLI!"
     list_pokemon
     menu
     good_bye
