@@ -6,7 +6,7 @@ class Scraper
   attr_accessor :number, :name
   
   #method will scrape data from a url. will add name and num attributes
-  def get_page
+  def get_all_page
     # html = File.read("https://pokemondb.net/pokedex/all")
     # poke_dex = Nokogiri::HTML(html)
     doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/all"))
@@ -24,7 +24,12 @@ class Scraper
     poke_dex_hash
   end
   
-  def add_additional_attributes 
+  def get_pokemon_page
+    
+  end
+  
+  def add_additional_attributes
+    
   end
   
 end
