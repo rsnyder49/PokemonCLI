@@ -5,33 +5,39 @@ require 'open-uri'
 class Scraper
   attr_accessor :number, :name
   
-  #method will scrape data from a url. will add name and num attributes
+  def initialize
+    get_all_page
+    add_num_and_name
+  end 
+  
   def get_all_page
     # html = File.read("https://pokemondb.net/pokedex/all")
     # poke_dex = Nokogiri::HTML(html)
-    doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/all"))
+    # doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/all"))
+    doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/national"))
     doc
+    
   end 
   
   def add_num_and_name
     poke_dex_hash = {}
     
-    get_page.css("div grid-col span-md-12 span-lg-10").each do |pokemon| 
-      poke_dex_hash[:number] = pokemon.css("tr td cell-num cell-fixed span infocard-cell-data").text
-      #poke_dex_hash.name = pokemon.css("td cell-name a ent-name").text
-      binding.pry
+    get_all_page.css("tbody").each do |pokemon| 
+    #   poke_dex_hash[:number] = pokemon.css("span.infocard-cell-data").text
+      poke_dex_hash[:name] = pokemon.css("tr td.cell-name a.ent-name").text
+      
     end
     poke_dex_hash
   end
-  
-  def get_pokemon_page
+  binding.pry
+  def self.get_pokemon_page
     
   end
   
-  def add_additional_attributes
+  def self.add_additional_attributes
     
   end
   
 end
 s = Scraper.new
-puts s.add_num_and_name
+s.add_num_and_name
