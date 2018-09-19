@@ -29,4 +29,4 @@ class Scraper
   
 end
 s = Scraper.new
-#puts s.add_num_and_name
+puts s.add_num_and_name

@@ -8,10 +8,18 @@ class PokemonCLI::Pokemon
     @@all 
   end 
   
-  def self.create(pokemon_hash)
+  def self.create
+    hash_1 = Scaper.new.add_num_and_name
+    hash_2 = Scraper.new.add_additional_attributes
+    
     pokemon = Pokemon.new 
+    
+    hash_1.each do |key, attribute|
     pokemon.number = 
     pokemon.name = 
+    end
+    
+    hash_2.each do |key, attribute|
     pokemon.type = 
     pokemon.species = 
     pokemon.height = 
@@ -19,6 +27,7 @@ class PokemonCLI::Pokemon
     pokemon.ability = 
     pokemon.base_stats = {:hp => 1, :attack => 1, :defense => 1, :specialAttack => 1, :specialDefense => 1, :speed => 1
     }
+    end
   end
   
 end 
