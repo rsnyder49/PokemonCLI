@@ -1,12 +1,14 @@
 class PokemonCLI::Pokemon 
-  @@all = []
+  attr_accessor :number, :name, :type, :species, :height, :weight, :ability, :base_stats
+  
+  @@all = ["1. Bulbasaur", "2. Ivysaur"]
   
   def self.all 
-    puts "1. Bulbasaur"
+    #puts "1. Bulbasaur"
     @@all 
   end 
   
-  def self.creat(pokemon_hash)
+  def self.create(pokemon_hash)
     pokemon = Pokemon.new 
     pokemon.number = 
     pokemon.name = 
@@ -17,4 +19,6 @@ class PokemonCLI::Pokemon
     pokemon.ability = 
     pokemon.base_stats = {:hp => 1, :attack => 1, :defense => 1, :specialAttack => 1, :specialDefense => 1, :speed => 1
     }
+  end
+  
 end 
