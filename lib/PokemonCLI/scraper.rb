@@ -32,12 +32,12 @@ class Scraper
   def self.get_pokemon_page
     doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/all"))
     url_array = []
-    doc.css("tr").each do |url|
-      url_array << url
+    doc.css("tr").each do |pokemon|
+      url_array << pokemon.css("a.ent-name").first.attr("href")
     end
     url_array
   end
-  
+  binding.pry 
   def self.add_additional_attributes
     get_pokemon_page.each do |page|
       doc = Nokogiri::HTML(open(page))
