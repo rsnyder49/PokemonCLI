@@ -8,11 +8,11 @@ class Scraper
   def initialize
     get_all_page
     add_num_and_name
+    get_pokemon_page
+    add_additional_attributes
   end 
   
   def get_all_page
-    # html = File.read("https://pokemondb.net/pokedex/all")
-    # poke_dex = Nokogiri::HTML(html)
     doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/all"))
     doc
     
@@ -28,9 +28,11 @@ class Scraper
     end
     poke_dex.reject{|a| a.empty?}
   end
-  binding.pry
+ 
   def self.get_pokemon_page
-    
+    doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/all"))
+    doc.css("tr").each do |url|
+      
   end
   
   def self.add_additional_attributes
