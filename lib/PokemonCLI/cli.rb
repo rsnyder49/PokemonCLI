@@ -26,8 +26,8 @@ class PokemonCLI::CLI
       if input.to_i > 0 
         puts @pokemon[input.to_i-1].name
         puts "Num: #{@pokemon[input.to_i-1].number}"
-        puts @pokemon[input.to_i-1].type
-        puts @pokemon[input.to_i-1].species #etc...
+        puts "Type: #{@pokemon[input.to_i-1].type}"
+        puts "Species:#{@pokemon[input.to_i-1].species}" #etc...
         
       elsif input == "list"
         list_pokemon
