@@ -7,17 +7,19 @@ class PokemonCLI::Pokemon
     @@all 
   end 
   
-  def self.create
+  def self.create_all
     array_1 = Scaper.new.add_num_and_name
     hash_2 = Scraper.new.add_additional_attributes
     
+    c = 0
+    until count = 807
     pokemon = Pokemon.new 
     
     array_1.each do |ele|
       pokemon.number = ele
       pokemon.name = ele + 1
 
-    end
+    
     
     hash_2.each do |key, attribute|
       case key 
@@ -35,9 +37,10 @@ class PokemonCLI::Pokemon
         base_stats.each do |stat|
         pokemon.base_stats = {:hp => 1, :attack => 1, :defense => 1, :specialAttack => 1, :specialDefense => 1, :speed => 1
       }
-        end
-      end
-    end
+      end #end array_1
+        end #end base_stats
+      end #end case 
+    end #end hash_2
     @@all << pokemon
   end
   
