@@ -23,7 +23,7 @@ class Scraper
     
     get_all_page.css("tr").each do |pokemon| 
       poke_dex << pokemon.css("span.infocard-cell-data").text
-      poke_dex << pokemon.css("tr td.cell-name").text
+      poke_dex << pokemon.css("td.cell-name").text
       
     end
     poke_dex.reject{|a| a.empty?}
