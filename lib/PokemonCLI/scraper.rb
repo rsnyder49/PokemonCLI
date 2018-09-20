@@ -26,7 +26,7 @@ class Scraper
       poke_dex << pokemon.css("td.cell-name").text
       
     end
-    poke_dex.reject{|a| a.empty?}
+    poke_dex.reject{|a| a.empty?} #need to also remove duplicates 
   end
  
   def self.get_pokemon_page
@@ -47,5 +47,4 @@ class Scraper
   end
   
 end
-s = Scraper.new
-s.add_num_and_name
+#h2 div.infocard-list infocard-list-pkmn-lg div.infocard span.infocard-lg-data text-muted small
