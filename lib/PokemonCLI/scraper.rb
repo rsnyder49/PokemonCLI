@@ -8,8 +8,6 @@ class Scraper
   def initialize
     get_all_page
     add_num_and_name
-    get_pokemon_page
-    add_additional_attributes
   end 
   
   def get_all_page
@@ -53,3 +51,11 @@ end
 #   puts "https://pokemondb.net#{p.css('a.ent-name').first.attr('href')}"
 # end
 #table.vitals-table tr th.Type
+#div.grid-col span-md-6 span-lg-4 tr th.Type a.type-icon type-
+#table.vitals-tables div.grid-col span-md-6 span-lg-4 h2 tr th.Species td a
+#grid-col span-md-6 span-lg-4
+#table.vitals-table tbody tr 
+# tr.each do |p| 
+#   puts p.css('td a').text.strip
+# end 
+type: doc.search('tr td a').attr('class') need to gsub out type-icon doc.search('tr td a').first.text
