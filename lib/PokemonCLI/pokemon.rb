@@ -39,7 +39,7 @@ class PokemonCLI::Pokemon
       pokemon.ability = attribute 
       when base_stats 
         base_stats.each do |stat|
-        pokemon.base_stats = {:hp => 1, :attack => 1, :defense => 1, :specialAttack => 1, :specialDefense => 1, :speed => 1
+        pokemon.base_stats = {:hp => 1, :attack => 1, :defense => 1, :specialAttack => 1, :specialDefense => 1, :speed => 1, :total => 1
       }
       end #end array_1
         end #end base_stats
@@ -49,3 +49,10 @@ class PokemonCLI::Pokemon
   end
   
 end 
+
+#type: doc.search('tr td a')[0].text ......[1]
+#species: doc.search('tr td')[2].text
+#abilities doc.search('tr td a')[2].text ........doc.search('tr td a')[3].text (hidden ability)
+#height: doc.search('tr td')[3].text
+#weight: doc.search('tr td')[4].text
+#hp tr td[15], attack[19] defense[23], spcAttack[27], spcDefense[31], speed[35], total[39]

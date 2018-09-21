@@ -50,5 +50,7 @@ end
 
 #type: doc.search('tr td a')[0].text ......[1]
 #species: doc.search('tr td')[2].text
+#abilities doc.search('tr td a')[2].text ........doc.search('tr td a')[3].text (hidden ability)
 #height: doc.search('tr td')[3].text
 #weight: doc.search('tr td')[4].text
+#hp tr td[15], attack[19] defense[23], spcAttack[27], spcDefense[31], speed[35], total[39]
