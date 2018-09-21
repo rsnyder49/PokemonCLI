@@ -47,15 +47,8 @@ class Scraper
   end
   
 end
-# doc.css('tr td.cell-name').each do |p| 
-#   puts "https://pokemondb.net#{p.css('a.ent-name').first.attr('href')}"
-# end
-#table.vitals-table tr th.Type
-#div.grid-col span-md-6 span-lg-4 tr th.Type a.type-icon type-
-#table.vitals-tables div.grid-col span-md-6 span-lg-4 h2 tr th.Species td a
-#grid-col span-md-6 span-lg-4
-#table.vitals-table tbody tr 
-# tr.each do |p| 
-#   puts p.css('td a').text.strip
-# end 
-type: doc.search('tr td a').attr('class') need to gsub out type-icon doc.search('tr td a').first.text
+
+#type: doc.search('tr td a')[0].text ......[1]
+#species: doc.search('tr td')[2].text
+#height: doc.search('tr td')[3].text
+#weight: doc.search('tr td')[4].text
