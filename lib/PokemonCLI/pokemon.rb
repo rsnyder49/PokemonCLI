@@ -28,15 +28,13 @@ class PokemonCLI::Pokemon
       #case key 
       #when type
       doc.css()
-      pokemon.type = doc.css()
-      when species 
-      pokemon.species = attribute
-      when height 
-      pokemon.height = attribute
-      when weight 
-      pokemon.weight = attribute 
-      when ability
-      pokemon.ability = attribute 
+      pokemon.type = doc.search('tr td a')[0].text
+      pokemon.type += "/#{doc.search('tr td a')[1].text}"
+      pokemon.species = doc.search('tr td')[2].text
+      pokemon.height = doc.search('tr td')[3].text
+      pokemon.weight = doc.search('tr td')[4].text 
+      pokemon.abilities = doc.search('tr td a')[2].text
+      pokemon.abilites += "/#{doc.search('tr td a')[2].text}(Hidden Ability)"
       when base_stats 
         base_stats.each do |stat|
         pokemon.base_stats = {:hp => 1, :attack => 1, :defense => 1, :specialAttack => 1, :specialDefense => 1, :speed => 1, :total => 1
