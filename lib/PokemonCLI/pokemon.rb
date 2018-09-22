@@ -1,3 +1,6 @@
+require 'nokogiri'
+require 'open-uri'
+
 class PokemonCLI::Pokemon 
   attr_accessor :number, :name, :type, :species, :height, :weight, :ability, :base_stats
   

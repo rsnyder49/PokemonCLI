@@ -48,6 +48,8 @@ class Scraper
   
 end
 
+#name: doc.search('h1').first.text
+#num: doc.search('tr td')[0].text
 #type: doc.search('tr td a')[0].text ......[1]
 #species: doc.search('tr td')[2].text
 #abilities doc.search('tr td a')[2].text ........doc.search('tr td a')[3].text (hidden ability)
