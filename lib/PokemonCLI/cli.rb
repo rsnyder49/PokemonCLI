@@ -1,4 +1,3 @@
-#CLI controller
 class PokemonCLI::CLI  
   
   def start 

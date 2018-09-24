@@ -15,40 +15,31 @@ class PokemonCLI::Pokemon
     
     c = 0
     until count == 807
-    pokemon = Pokemon.new 
+      pokemon = Pokemon.new 
     
-    array_1.each do |ele|
-      pokemon.number = ele
-      pokemon.name = ele + 1
-      c += 1 
-      @@all << pokemon
+      array_1.each do |ele|
+        pokemon.number = ele
+        pokemon.name = ele + 1
+        c += 1 
+        @@all << pokemon
+      end
+    end
+  end
 
     
   def get_attributes(name)
-    doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/#{name}"))
+    doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/#{pokemon.name.downcase}"))
       
-    #hash_2.each do |key, attribute|
-      #case key 
-      #when type
-      doc.css()
-      pokemon.type = doc.search('tr td a')[0].text
-      pokemon.type += "/#{doc.search('tr td a')[1].text}"
-      pokemon.species = doc.search('tr td')[2].text
-      pokemon.height = doc.search('tr td')[3].text
-      pokemon.weight = doc.search('tr td')[4].text 
-      pokemon.abilities = doc.search('tr td a')[2].text
-      pokemon.abilites += "/#{doc.search('tr td a')[2].text}(Hidden Ability)"
-      when base_stats 
-        base_stats.each do |stat|
-        pokemon.base_stats = {:hp => 1, :attack => 1, :defense => 1, :specialAttack => 1, :specialDefense => 1, :speed => 1, :total => 1
-      }
-      end #end array_1
-        end #end base_stats
-      end #end case 
-    end #end hash_2
-    @@all << pokemon
+    pokemon.type = doc.search('tr td a')[0].text
+    pokemon.type += "/#{doc.search('tr td a')[1].text}"
+    pokemon.species = doc.search('tr td')[2].text
+    pokemon.height = doc.search('tr td')[3].text
+    pokemon.weight = doc.search('tr td')[4].text 
+    pokemon.abilities = doc.search('tr td a')[2].text
+    pokemon.abilites += "/#{doc.search('tr td a')[2].text}(Hidden Ability)"
   end
-  
+
+
 end 
 
 #type: doc.search('tr td a')[0].text ......[1]
