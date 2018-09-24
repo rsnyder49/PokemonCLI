@@ -17,10 +17,11 @@ class PokemonCLI::Scraper
   
   def self.add_num_and_name
     poke_dex = []
-    
-    get_all_page.css("tr").each do |pokemon| 
-      poke_dex << pokemon.css("span.infocard-cell-data").text
-      poke_dex << pokemon.css("td.cell-name").text
+    pokemon = PokemonCLI::Pokemon.new
+    get_all_page.css("tr").each do |a| 
+      pokemon.number = a.css("span.infocard-cell-data").text
+      pokemon.name = a.css("td.cell-name").text
+      poke_dex << pokemon 
     end
     poke_dex.reject{|a| a.empty?} #need to also remove duplicates 
   end
