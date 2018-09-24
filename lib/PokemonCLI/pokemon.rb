@@ -4,10 +4,10 @@ require 'open-uri'
 class PokemonCLI::Pokemon 
   attr_accessor :number, :name, :type, :species, :height, :weight, :ability, :base_stats
   
-  @@all = []
+  @@all_pokemon = []
   
-  def self.all 
-    @@all 
+  def self.all_pokemon
+    @@all_pokemon 
   end 
   
   def self.get_all_page
@@ -16,12 +16,11 @@ class PokemonCLI::Pokemon
   end 
   
   def self.create_all
-    
     get_all_page.css("tr").each do |a| 
       pokemon = self.new
       pokemon.number = a.css("span.infocard-cell-data").text
       pokemon.name = a.css("td.cell-name").text
-      @@all << pokemon 
+      @@all_pokemon << pokemon 
     end
   end
   
@@ -44,7 +43,7 @@ class PokemonCLI::Pokemon
     
   def get_attributes(name)
     doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/#{name}"))
-      
+    pokemon = self.new
     pokemon.type = doc.search('tr td a')[0].text
     pokemon.type += "/#{doc.search('tr td a')[1].text}"
     pokemon.species = doc.search('tr td')[2].text

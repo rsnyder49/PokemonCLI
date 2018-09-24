@@ -1,5 +1,5 @@
 class PokemonCLI::CLI  
-  
+  attr_accessor :name
   def start 
     puts "Welcome to the PokemonCLI!"
     list_pokemon
@@ -8,8 +8,9 @@ class PokemonCLI::CLI
   end 
   
   def list_pokemon 
-    @all_pokemon = PokemonCLI::Pokemon.create_all.all
-    @all_pokemon.each_with_index(1) do |i, pokemon|
+    PokemonCLI::Pokemon.create_all
+    @all_pokemon = PokemonCLI::Pokemon.all_pokemon
+    @all_pokemon.each.with_index(1) do |pokemon, i|
       puts "#{i}. #{pokemon.name}"
     end
   end 
@@ -23,7 +24,7 @@ class PokemonCLI::CLI
       input = gets.downcase.strip
       
       if input.to_i > 0 
-        pokemon = @all_pokemon[input.to_i-1].get_attributes(pokemon.name)
+        pokemon = @all_pokemon[input.to_i-1].get_attributes(pokemon)
         puts pokemon[input.to_i-1].name
         puts "Num: #{pokemon[input.to_i-1].number}"
         puts "Type: #{pokemon[input.to_i-1].type}"
