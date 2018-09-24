@@ -1,7 +1,0 @@
-
-#require_all 'lib'
-
-#require './lib/PokemonCLI/scraper'
-#require './lib/PokemonCLI/pokemon'
-#require './lib/PokemonCLI/cli'
-#require './lib/PokemonCLI/version'

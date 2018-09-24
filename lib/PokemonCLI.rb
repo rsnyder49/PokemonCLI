@@ -1,12 +1,12 @@
 #require "PokemonCLI/version"
-#require "./config/environment"
+
 require 'pry'
 require 'nokogiri'
 require 'open-uri'
 
-require './PokemonCLI/version'
-require './PokemonCLI/cli'
-require './PokemonCLI/pokemon'
-require './PokemonCLI/scraper'
+require 'PokemonCLI/version'
+require 'PokemonCLI/cli'
+require 'PokemonCLI/pokemon'
+require 'PokemonCLI/scraper'
 
 

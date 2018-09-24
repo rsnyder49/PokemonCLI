@@ -39,7 +39,6 @@ class PokemonCLI::Pokemon
     pokemon.abilites += "/#{doc.search('tr td a')[2].text}(Hidden Ability)"
   end
 
-
 end 
 
 #type: doc.search('tr td a')[0].text ......[1]
