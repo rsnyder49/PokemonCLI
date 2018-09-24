@@ -10,8 +10,8 @@ class PokemonCLI::Pokemon
     @@all 
   end 
   
-  def create_all
-    array_1 = PokemonCLI::Scraper.new.add_num_and_name
+  def self.create_all
+    array_1 = PokemonCLI::Scraper.add_num_and_name
     
     count = 0
     until count == 807
@@ -19,7 +19,7 @@ class PokemonCLI::Pokemon
     
       array_1.each do |ele|
         pokemon.number = ele
-        pokemon.name = ele + 1
+        pokemon.name = ele
         count += 1 
         @@all << pokemon
       end

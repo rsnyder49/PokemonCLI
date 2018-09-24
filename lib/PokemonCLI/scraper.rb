@@ -10,12 +10,12 @@ class PokemonCLI::Scraper
   #   add_num_and_name
   # end 
   
-  def get_all_page
+  def self.get_all_page
     doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/all"))
     doc
   end 
   
-  def add_num_and_name
+  def self.add_num_and_name
     poke_dex = []
     
     get_all_page.css("tr").each do |pokemon| 
