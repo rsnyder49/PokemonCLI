@@ -10,17 +10,17 @@ class PokemonCLI::Pokemon
     @@all 
   end 
   
-  def self.create_all
-    array_1 = Scaper.new.add_num_and_name
+  def create_all
+    array_1 = PokemonCLI::Scraper.new.add_num_and_name
     
-    c = 0
+    count = 0
     until count == 807
-      pokemon = Pokemon.new 
+      pokemon = self.new 
     
       array_1.each do |ele|
         pokemon.number = ele
         pokemon.name = ele + 1
-        c += 1 
+        count += 1 
         @@all << pokemon
       end
     end
@@ -28,7 +28,7 @@ class PokemonCLI::Pokemon
 
     
   def get_attributes(name)
-    doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/#{pokemon.name.downcase}"))
+    doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/#{name}"))
       
     pokemon.type = doc.search('tr td a')[0].text
     pokemon.type += "/#{doc.search('tr td a')[1].text}"

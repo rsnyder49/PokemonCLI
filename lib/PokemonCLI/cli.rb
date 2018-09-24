@@ -7,8 +7,8 @@ class PokemonCLI::CLI
     good_bye
   end 
   
-  def list_pokemon #use each_with_index once we are creating obj's
-    @all_pokemon = PokemonCLI::Pokemon.create_all.all
+  def list_pokemon 
+    @all_pokemon = PokemonCLI::Pokemon.new.create_all.all
     @all_pokemon.each_with_index(1) do |i, pokemon|
       puts "#{i}. #{pokemon.name}"
     end
