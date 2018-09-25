@@ -41,7 +41,8 @@ class PokemonCLI::Pokemon
   # end
 
     
-  def self.get_attributes(name)
+  def self.get_attributes(pokemon_name = "https://pokemondb.net/pokedex/bulbasaur" )
+    @single_pokemon = []
     doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/bulbasaur")) #bulbasaur = name
     pokemon = PokemonCLI::Pokemon.new
     pokemon.name = doc.search('h1').first.text
@@ -53,6 +54,8 @@ class PokemonCLI::Pokemon
     # pokemon.weight = doc.search('tr td')[4].text 
     # pokemon.abilities = doc.search('tr td a')[2].text
     # pokemon.abilities += "/#{doc.search('tr td a')[2].text}(Hidden Ability)"
+    pokemon 
+    
   end
 
 end 

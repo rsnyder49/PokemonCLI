@@ -24,9 +24,12 @@ class PokemonCLI::CLI
       input = gets.downcase.strip
       
       if input.to_i > 0 
+        # PokemonCLI::Pokemon.create_all
+        # @all_pokemon = PokemonCLI::Pokemon.all_pokemon
         #current_pokemon = @all_pokemon[input.to_i-1]
-        pokemon = PokemonCLI::Pokemon.get_attributes(name)#current_pokemon.name
-        
+        pokemon = PokemonCLI::Pokemon.get_attributes()#current_pokemon.name
+        puts pokemon
+        pokemon.name 
         puts pokemon.name
         puts "Num: #{pokemon.number}"
         puts "Type: #{pokemon.type}"
