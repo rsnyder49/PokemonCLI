@@ -19,27 +19,10 @@ class PokemonCLI::Pokemon
     get_all_page.css("tr").each do |a| 
       pokemon = self.new
       pokemon.number = a.css("span.infocard-cell-data").text
-      pokemon.name = a.css("td.cell-name").text
-      @@all_pokemon << pokemon 
+      pokemon.name = a.css("td a.ent-name").text
+      @@all_pokemon << pokemon #unless @@all_pokemon.each {|a| a.name == pokemon.name}
     end
   end
-  
-  # def self.create_all
-  #   array_1 = PokemonCLI::Scraper.add_num_and_name
-    
-  #   count = 0
-  #   #until count == 807
-  #     #pokemon = self.new 
-    
-  #     array_1.each do |ele|
-  #       pokemon.number = ele
-  #       #pokemon.name = ele
-  #       count += 1 
-  #       @@all << pokemon
-  #     #end
-  #   end
-  # end
-
     
   def self.get_attributes(pokemon_name)
     doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/#{pokemon_name}")) 
@@ -54,7 +37,6 @@ class PokemonCLI::Pokemon
     pokemon.abilities = doc.search('tr td a')[2].text
     pokemon.abilities += "/#{doc.search('tr td a')[3].text}(Hidden Ability)"
     pokemon 
-    
   end
 
 end 
