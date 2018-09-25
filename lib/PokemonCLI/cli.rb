@@ -11,7 +11,7 @@ class PokemonCLI::CLI
     PokemonCLI::Pokemon.create_all
     @all_pokemon = PokemonCLI::Pokemon.all_pokemon
     @all_pokemon.each.with_index(1) do |pokemon, i|
-      puts "#{i}. #{pokemon.name}"
+      puts "#{pokemon.number}. #{pokemon.name}"
     end
   end 
   
@@ -24,13 +24,13 @@ class PokemonCLI::CLI
       input = gets.downcase.strip
       
       if input.to_i > 0 
-        #pokemon = @all_pokemon[input.to_i-1].get_attributes(pokemon)
-        @pokemon = PokemonCLI::Pokemon.new 
-        @pokemon.get_attributes(name)
-        puts @pokemon.name
-        puts "Num: #{@pokemon.number}"
-        puts "Type: #{@pokemon.type}"
-        puts "Species:#{@pokemon.species}" #etc...
+        #current_pokemon = @all_pokemon[input.to_i-1]
+        pokemon = PokemonCLI::Pokemon.get_attributes(name)#current_pokemon.name
+        
+        puts pokemon.name
+        puts "Num: #{pokemon.number}"
+        puts "Type: #{pokemon.type}"
+        puts "Species:#{pokemon.species}" #etc...
         puts "-----------------------"
         
       elsif input == "list"
