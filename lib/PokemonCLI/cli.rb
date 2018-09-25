@@ -4,7 +4,7 @@ class PokemonCLI::CLI
     puts "Welcome to the PokemonCLI!"
     list_pokemon
     menu
-    good_bye
+    #good_bye
   end 
   
   def list_pokemon 
@@ -24,15 +24,20 @@ class PokemonCLI::CLI
       input = gets.downcase.strip
       
       if input.to_i > 0 
-        pokemon = @all_pokemon[input.to_i-1].get_attributes(pokemon)
-        puts pokemon[input.to_i-1].name
-        puts "Num: #{pokemon[input.to_i-1].number}"
-        puts "Type: #{pokemon[input.to_i-1].type}"
-        puts "Species:#{pokemon[input.to_i-1].species}" #etc...
+        #pokemon = @all_pokemon[input.to_i-1].get_attributes(pokemon)
+        @pokemon = PokemonCLI::Pokemon.new 
+        @pokemon.get_attributes(name)
+        puts @pokemon.name
+        puts "Num: #{@pokemon.number}"
+        puts "Type: #{@pokemon.type}"
+        puts "Species:#{@pokemon.species}" #etc...
+        puts "-----------------------"
         
       elsif input == "list"
         list_pokemon
-      else 
+      elsif input == 'exit' 
+        good_bye
+      else
         puts "I did not understand that input, please type 'list' or 'exit'."
       end 
     end

@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 
 class PokemonCLI::Pokemon 
-  attr_accessor :number, :name, :type, :species, :height, :weight, :ability, :base_stats
+  attr_accessor :number, :name, :type, :species, :height, :weight, :abilities
   
   @@all_pokemon = []
   
@@ -42,19 +42,23 @@ class PokemonCLI::Pokemon
 
     
   def get_attributes(name)
-    doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/#{name}"))
-    pokemon = self.new
-    pokemon.type = doc.search('tr td a')[0].text
-    pokemon.type += "/#{doc.search('tr td a')[1].text}"
-    pokemon.species = doc.search('tr td')[2].text
-    pokemon.height = doc.search('tr td')[3].text
-    pokemon.weight = doc.search('tr td')[4].text 
-    pokemon.abilities = doc.search('tr td a')[2].text
-    pokemon.abilities += "/#{doc.search('tr td a')[2].text}(Hidden Ability)"
+    doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/bulbasaur")) #bulbasaur = name
+    @pokemon = PokemonCLI::Pokemon.new
+    @pokemon.name = doc.search('h1').first.text
+    @pokemon.number = doc.search('tr td')[0].text
+    @pokemon.type = doc.search('tr td a')[0].text
+    @pokemon.type += "/#{doc.search('tr td a')[1].text}"
+    @pokemon.species = doc.search('tr td')[2].text
+    # pokemon.height = doc.search('tr td')[3].text
+    # pokemon.weight = doc.search('tr td')[4].text 
+    # pokemon.abilities = doc.search('tr td a')[2].text
+    # pokemon.abilities += "/#{doc.search('tr td a')[2].text}(Hidden Ability)"
   end
 
 end 
 
+#name: doc.search('h1').first.text
+#num: doc.search('tr td')[0].text
 #type: doc.search('tr td a')[0].text ......[1]
 #species: doc.search('tr td')[2].text
 #abilities doc.search('tr td a')[2].text ........doc.search('tr td a')[3].text (hidden ability)
