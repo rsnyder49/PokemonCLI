@@ -25,9 +25,10 @@ class PokemonCLI::CLI
       
       if input.to_i > 0 
         current_pokemon = @all_pokemon[input.to_i-1]
-        current_pokemon.name = current_pokemon.name.gsub("Mega", "")
-        puts current_pokemon.name
-        #pokemon = PokemonCLI::Pokemon.get_attributes(current_pokemon.name)
+        current_pokemon.name = current_pokemon.name.gsub(/(Mega)|(Al)/, "")
+        name_arr = current_pokemon.name.split 
+        puts name_arr[0]
+        pokemon = PokemonCLI::Pokemon.get_attributes(name_arr[0])
         
         pokemon.name 
         puts pokemon.name

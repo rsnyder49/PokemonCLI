@@ -42,7 +42,6 @@ class PokemonCLI::Pokemon
 
     
   def self.get_attributes(pokemon_name)
-    @single_pokemon = []
     doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/#{pokemon_name}")) 
     pokemon = PokemonCLI::Pokemon.new
     pokemon.name = doc.search('h1').first.text
