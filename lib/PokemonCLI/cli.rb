@@ -4,13 +4,11 @@ class PokemonCLI::CLI
     puts "Welcome to the PokemonCLI!"
     list_pokemon
     menu
-    #good_bye
   end 
   
   def list_pokemon 
     PokemonCLI::Pokemon.create_all
     @all_pokemon = PokemonCLI::Pokemon.all_pokemon
-    #@all_pokemon.reject{ |a| a.empty? }
     @all_pokemon.each do |pokemon|
       puts "#{pokemon.number}. #{pokemon.name}"
     end
@@ -25,7 +23,7 @@ class PokemonCLI::CLI
       input = gets.downcase.strip
       
       if input.to_i > 0 
-        current_pokemon = @all_pokemon[input.to_i] #input.to_i-1
+        current_pokemon = @all_pokemon[input.to_i] 
         pokemon = PokemonCLI::Pokemon.get_attributes(current_pokemon.name)
         
         puts pokemon.name

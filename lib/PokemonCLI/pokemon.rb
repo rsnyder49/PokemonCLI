@@ -7,7 +7,7 @@ class PokemonCLI::Pokemon
   @@all_pokemon = []
   
   def self.all_pokemon
-    @@all_pokemon.uniq {|a| a.name}
+    @@all_pokemon.uniq { |a| a.name }
   end 
   
   def self.get_all_page
@@ -19,7 +19,7 @@ class PokemonCLI::Pokemon
       pokemon = self.new
       pokemon.number = a.css("span.infocard-cell-data").text
       pokemon.name = a.css("td a.ent-name").text
-      @@all_pokemon << pokemon #unless @@all_pokemon.each {|a| a.number == pokemon.number}
+      @@all_pokemon << pokemon 
     end
   end
     
@@ -39,12 +39,3 @@ class PokemonCLI::Pokemon
   end
 
 end 
-
-#name: doc.search('h1').first.text
-#num: doc.search('tr td')[0].text
-#type: doc.search('tr td a')[0].text ......[1]
-#species: doc.search('tr td')[2].text
-#abilities doc.search('tr td a')[2].text ........doc.search('tr td a')[3].text (hidden ability)
-#height: doc.search('tr td')[3].text
-#weight: doc.search('tr td')[4].text
-#hp tr td[15], attack[19] defense[23], spcAttack[27], spcDefense[31], speed[35], total[39]
