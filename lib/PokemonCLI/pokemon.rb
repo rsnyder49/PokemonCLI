@@ -7,12 +7,11 @@ class PokemonCLI::Pokemon
   @@all_pokemon = []
   
   def self.all_pokemon
-    @@all_pokemon 
+    @@all_pokemon.uniq {|a| a.name}
   end 
   
   def self.get_all_page
     doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/all"))
-    doc
   end 
   
   def self.create_all
