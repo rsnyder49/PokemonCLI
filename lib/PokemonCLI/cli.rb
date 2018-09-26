@@ -1,17 +1,41 @@
 class PokemonCLI::CLI  
   attr_accessor :name
   def start 
+    input = ""
     puts "Welcome to the PokemonCLI!"
-    list_pokemon
+    puts "Input '1' to view Pokemon numbers 1 to 250."
+    puts "Input '2' to view Pokemon numbers 251 to 500."
+    puts "Input '3' to view Pokemon numbers 501 to 807."
+    
+    input = gets.strip 
+    case input 
+    when 1 
+    
     menu
   end 
   
-  def list_pokemon 
+  def list_pokemon_1_to_250
     PokemonCLI::Pokemon.create_all
-    @all_pokemon = PokemonCLI::Pokemon.all_pokemon
+    @all_pokemon = PokemonCLI::Pokemon.all_pokemon[1..250]
     @all_pokemon.each do |pokemon|
       puts "#{pokemon.number}. #{pokemon.name}"
     end
+  end 
+  
+  def list_pokemon_251_to_500 
+    PokemonCLI::Pokemon.create_all
+    @all_pokemon = PokemonCLI::Pokemon.all_pokemon[251..500]
+    @all_pokemon.each do |pokemon|
+      puts "#{pokemon.number}. #{pokemon.name}"
+    end 
+  end 
+  
+  def list_pokemon_501_to_807
+    PokemonCLI::Pokemon.create_all
+    @all_pokemon = PokemonCLI::Pokemon.all_pokemon[501..807]
+    @all_pokemon.each do |pokemon|
+      puts "#{pokemon.number}. #{pokemon.name}"
+    end 
   end 
   
   def menu
@@ -23,7 +47,7 @@ class PokemonCLI::CLI
       input = gets.downcase.strip
       
       if input.to_i > 0 
-        current_pokemon = @all_pokemon[input.to_i] 
+        current_pokemon = @all_pokemon[input.to_i - 1] 
         pokemon = PokemonCLI::Pokemon.get_attributes(current_pokemon.name)
         
         puts pokemon.name
