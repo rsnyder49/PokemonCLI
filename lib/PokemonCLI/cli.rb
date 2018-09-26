@@ -9,22 +9,23 @@ class PokemonCLI::CLI
   
   def list_pokemon 
     input = ""
-      puts "Input '1' to view Pokemon numbers 1 to 250"
-      puts "Input '2' to view Pokemon numbers 251 to 500"
-      puts "Input '3' to view Pokemon numbers 501 to 807 or type 'exit' to close the program"
-      input = gets.downcase.strip 
-      case input  
-      when "1" 
+    puts "Enter '1' to view Pokemon numbers 1 to 250"
+    puts "Enter '2' to view Pokemon numbers 251 to 500"
+    puts "Enter '3' to view Pokemon numbers 501 to 807 or type 'exit' to close the program"
+    input = gets.downcase.strip 
+    #case input  
+      if input == "1" 
         list_pokemon_1_to_250 
-      when "2" 
+      elsif input == "2" 
         list_pokemon_251_to_500
-      when "3" 
+      elsif input == "3" 
         list_pokemon_501_to_807
-      when "exit"
+      elsif input == "exit"
         good_bye
         exit
       else 
-        "I did not understand that input"
+        puts "I did not understand that input."
+        list_pokemon
     end
   end 
   
@@ -73,7 +74,6 @@ class PokemonCLI::CLI
       elsif input == "menu"
         list_pokemon
       elsif input == 'exit' 
-      #   good_bye
       else
         puts "I did not understand that input."
       end 
