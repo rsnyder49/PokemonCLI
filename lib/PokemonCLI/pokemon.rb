@@ -20,7 +20,7 @@ class PokemonCLI::Pokemon
       pokemon = self.new
       pokemon.number = a.css("span.infocard-cell-data").text
       pokemon.name = a.css("td a.ent-name").text
-      @@all_pokemon << pokemon #unless @@all_pokemon.each {|a| a.name == pokemon.name}
+      @@all_pokemon << pokemon #unless @@all_pokemon.each {|a| a.number == pokemon.number}
     end
   end
     

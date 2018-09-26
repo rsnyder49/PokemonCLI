@@ -42,7 +42,7 @@ class PokemonCLI::CLI
       elsif input == 'exit' 
         good_bye
       else
-        puts "I did not understand that input, please type 'list' or 'exit'."
+        puts "I did not understand that input."
       end 
     end
   end
