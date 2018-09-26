@@ -1,5 +1,5 @@
 class PokemonCLI::CLI  
-  #attr_accessor :name
+
   def start 
     puts "Welcome to the PokemonCLI!"
     list_pokemon
@@ -9,26 +9,22 @@ class PokemonCLI::CLI
   
   def list_pokemon 
     input = ""
-    # while input != 'exit'
-      puts "Input '1' to view Pokemon numbers 1 to 250."
-      puts "Input '2' to view Pokemon numbers 251 to 500."
-      puts "Input '3' to view Pokemon numbers 501 to 807 or type 'exit' to close the program."
+      puts "Input '1' to view Pokemon numbers 1 to 250"
+      puts "Input '2' to view Pokemon numbers 251 to 500"
+      puts "Input '3' to view Pokemon numbers 501 to 807 or type 'exit' to close the program"
       input = gets.downcase.strip 
-      case input.to_i  
-      when 1 
+      case input  
+      when "1" 
         list_pokemon_1_to_250 
-        #menu
-      when 2 
+      when "2" 
         list_pokemon_251_to_500
-        #menu
-      when 3 
+      when "3" 
         list_pokemon_501_to_807
-        #menu
-      when 'exit'
+      when "exit"
         good_bye
+        exit
       else 
-        "I did not understand that unput"
-      #end
+        "I did not understand that input"
     end
   end 
   
@@ -56,17 +52,12 @@ class PokemonCLI::CLI
     end 
   end 
   
-  # def get_all_pokemon
-  #   PokemonCLI::Pokemon.create_all
-  #   @all_pokemon = PokemonCLI::Pokemon.all_pokemon
-  # end 
-  
   def menu
     input = ""
     PokemonCLI::Pokemon.create_all
     @all_pokemon = PokemonCLI::Pokemon.all_pokemon
     while input != 'exit'
-      puts "Please enter a Pokemon number to see additional information about that Pokemon or type 'list' to view the list of Pokemon or type 'exit' to close the program."
+      puts "Please enter a Pokemon number to see additional information about that Pokemon or type 'menu' to view the Home Menu or type 'exit' to close the program."
       input = gets.downcase.strip
       if input.to_i > 0 
         current_pokemon = @all_pokemon[input.to_i] 
@@ -79,7 +70,7 @@ class PokemonCLI::CLI
         puts "Weight: #{pokemon.weight}"
         puts "Abilities: #{pokemon.abilities}"
         puts "-----------------------"
-      elsif input == "list"
+      elsif input == "menu"
         list_pokemon
       elsif input == 'exit' 
       #   good_bye
