@@ -33,7 +33,7 @@ class PokemonCLI::CLI
     PokemonCLI::Pokemon.create_all
     all_pokemon = PokemonCLI::Pokemon.all_pokemon[1..250]
     all_pokemon.each do |pokemon|
-      puts "#{pokemon.number}. #{pokemon.name}"
+      puts "#{pokemon.number}. #{pokemon.name} #{pokemon.type}"
     end
   end 
   
@@ -65,7 +65,7 @@ class PokemonCLI::CLI
         pokemon = PokemonCLI::Pokemon.get_attributes(current_pokemon.name)
         puts pokemon.name
         puts "Num: #{pokemon.number}"
-        puts "Type: #{pokemon.type}"
+        puts "Type: #{current_pokemon.type}"
         puts "Species: #{pokemon.species}" 
         puts "Height: #{pokemon.height}"
         puts "Weight: #{pokemon.weight}"

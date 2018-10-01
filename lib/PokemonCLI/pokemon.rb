@@ -1,6 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
-
+require 'pry'
+#class Pokemon
 class PokemonCLI::Pokemon 
   attr_accessor :number, :name, :type, :species, :height, :weight, :abilities
   
@@ -19,10 +20,11 @@ class PokemonCLI::Pokemon
       pokemon = self.new
       pokemon.number = a.css("span.infocard-cell-data").text
       pokemon.name = a.css("td a.ent-name").text
+      pokemon.type = "#{a.css('td a.type-icon').text}"
       @@all_pokemon << pokemon 
     end
   end
-    
+    #binding.pry
   def self.get_attributes(pokemon_name)
     doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/#{pokemon_name}")) 
     pokemon = PokemonCLI::Pokemon.new
