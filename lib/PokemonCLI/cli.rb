@@ -2,6 +2,7 @@ class PokemonCLI::CLI
 
   def start 
     puts "Welcome to the PokemonCLI!"
+    PokemonCLI::Scraper.create_all
     list_pokemon
     menu
     good_bye
@@ -29,7 +30,7 @@ class PokemonCLI::CLI
   end 
   
   def list_pokemon_1_to_250
-    PokemonCLI::Pokemon.create_all
+   # PokemonCLI::Pokemon.create_all
     all_pokemon = PokemonCLI::Pokemon.all_pokemon[1..250]
     all_pokemon.each do |pokemon|
       puts "#{pokemon.number}. #{pokemon.name}"
@@ -37,7 +38,7 @@ class PokemonCLI::CLI
   end 
   
   def list_pokemon_251_to_500 
-    PokemonCLI::Pokemon.create_all
+   # PokemonCLI::Pokemon.create_all
     all_pokemon = PokemonCLI::Pokemon.all_pokemon[251..500]
     all_pokemon.each do |pokemon|
       puts "#{pokemon.number}. #{pokemon.name}"
@@ -45,7 +46,7 @@ class PokemonCLI::CLI
   end 
   
   def list_pokemon_501_to_807
-    PokemonCLI::Pokemon.create_all
+    #PokemonCLI::Pokemon.create_all
     all_pokemon = PokemonCLI::Pokemon.all_pokemon[501..807]
     all_pokemon.each do |pokemon|
       puts "#{pokemon.number}. #{pokemon.name}"
@@ -54,18 +55,18 @@ class PokemonCLI::CLI
   
   def menu
     input = ""
-    PokemonCLI::Pokemon.create_all
+    #PokemonCLI::Pokemon.create_all
     @all_pokemon = PokemonCLI::Pokemon.all_pokemon
     while input != 'exit'
       puts "Please enter a Pokemon number to see additional information about that Pokemon or type 'menu' to view the Home Menu or type 'exit' to close the program."
       input = gets.downcase.strip
       if input.to_i > 0 
-        current_pokemon = @all_pokemon[input.to_i] 
-        pokemon = PokemonCLI::Pokemon.get_attributes(current_pokemon.name)
+        pokemon = @all_pokemon[input.to_i] 
+        PokemonCLI::Scraper.get_attributes(pokemon.name)
         puts pokemon.info
         puts "Name: #{pokemon.name}"
         puts "Number: #{pokemon.number}"
-        puts "Type: #{current_pokemon.type}"
+        puts "Type: #{pokemon.type}"
         puts "Species: #{pokemon.species}" 
         puts "Height: #{pokemon.height}"
         puts "Weight: #{pokemon.weight}"
