@@ -8,11 +8,11 @@ class PokemonCLI::Scraper
     get_all_page.css("tr").each do |a|
     name = a.css("td a.ent-name").text
     if PokemonCLI::Pokemon.all_pokemon.find {|o| o.name == name } == nil
-      #pokemon = PokemonCLI::Pokemon.new
+      pokemon = PokemonCLI::Pokemon.new
       pokemon.number = a.css("span.infocard-cell-data").text
       pokemon.name = name
       pokemon.type = a.css('td a.type-icon').text
-      PokemonCLI::Pokemon.new
+      #PokemonCLI::Pokemon.new
     end
     end
   end
@@ -26,7 +26,7 @@ class PokemonCLI::Scraper
     pokemon.species = doc.search('tr td')[2].text
     pokemon.height = doc.search('tr td')[3].text
     pokemon.weight = doc.search('tr td')[4].text 
-    #pokemon 
+    pokemon 
   end
   
 end 

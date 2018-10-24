@@ -8,7 +8,7 @@ class PokemonCLI::Pokemon
   end 
   
   def self.all_pokemon
-    @@all_pokemon #.uniq { |a| a.name }
+    @@all_pokemon 
   end 
 
 end 
