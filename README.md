@@ -24,9 +24,8 @@ Or install it yourself as:
 
 1. You will be given a list that will accept numbers 1-3.
 2. After selecting 1, 2, or 3, you will be presented a list of Pokemon.
-3. At the list of Pokemon, you can enter the number corresponding to a Pokemon to receive additional attributes about that monster.
-4. You may also type 'menu' to go back to the original menu.
-5. You may type 'exit' at any time to close the program.
+3. At the list of Pokemon, you can enter the number corresponding to a Pokemon to receive additional attributes about that monster. You may also type 'menu' to go back to the original menu.
+4. You may type 'exit' at any time to close the program.
 
 ## Development
 
