@@ -11,6 +11,7 @@ class PokemonCLI::Scraper
         pokemon = PokemonCLI::Pokemon.new
         pokemon.number = a.css("span.infocard-cell-data").text
         pokemon.name = name
+        PokemonCLI::Pokemon.all_pokemon << pokemon
       end
     end
   end
