@@ -12,7 +12,7 @@ class PokemonCLI::CLI
     input = ""
     puts "Enter '1' to view Pokemon numbers 1 to 250"
     puts "Enter '2' to view Pokemon numbers 251 to 500"
-    puts "Enter '3' to view Pokemon numbers 501 to 807 or type 'exit' to close the program"
+    puts "Enter '3' to view Pokemon numbers 501 to 809 or type 'exit' to close the program"
     input = gets.downcase.strip 
       if input == "1" 
         list_pokemon_1_to_250 
