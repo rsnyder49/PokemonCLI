@@ -5,7 +5,7 @@ class PokemonCLI::Scraper
   end 
   
   def self.create_all
-    get_all_page.css("tr").each do |a|
+    get_all_page.css("tr").drop(1).each do |a|
     name = a.css("td a.ent-name").text
       if PokemonCLI::Pokemon.all_pokemon.find {|o| o.name == name } == nil
         pokemon = PokemonCLI::Pokemon.new
@@ -16,12 +16,9 @@ class PokemonCLI::Scraper
     end
   end
 
-  def self.get_attributes(pokemon_name)
-    doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/#{pokemon_name}")) 
-    pokemon = PokemonCLI::Pokemon.new
-    pokemon.name = doc.search('h1').first.text
+  def self.get_attributes(pokemon)
+    doc = Nokogiri::HTML(open("https://pokemondb.net/pokedex/#{pokemon.name}")) 
     pokemon.info = doc.search('p')[0].text
-    pokemon.number = doc.search('tr td')[0].text
     pokemon.species = doc.search('tr td')[2].text
     pokemon.height = doc.search('tr td')[3].text
     pokemon.weight = doc.search('tr td')[4].text 
