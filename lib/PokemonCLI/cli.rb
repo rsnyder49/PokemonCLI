@@ -56,7 +56,7 @@ class PokemonCLI::CLI
     while input != 'exit'
       puts "Please enter a Pokemon number to see additional information about that Pokemon or type 'menu' to view the Home Menu or type 'exit' to close the program."
       input = gets.downcase.strip
-      if input.to_i > 0 && input.to_i <= 807
+      if input.to_i > 0 && input.to_i <= 809
         pokemon = @all_pokemon[input.to_i] 
         pokemon = PokemonCLI::Scraper.get_attributes(pokemon.name)
         puts pokemon.info
